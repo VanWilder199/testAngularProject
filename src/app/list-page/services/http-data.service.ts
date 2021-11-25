@@ -6,10 +6,9 @@ import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class HandelDataService {
+export class HttpDataService {
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getJSON(): Observable<IObject> {
     return this.http.get<IObject>("assets/mocked/mock.json");

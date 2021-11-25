@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {IData} from "../../shared/models/data.model";
-import {HandelDataService} from "./handel-data.service";
+import {HttpDataService} from "./http-data.service";
 import {BehaviorSubject} from "rxjs";
 import {enumData} from "../../app.constants";
 
@@ -12,19 +12,14 @@ export class StateDataService {
   private filterMockedData$$ = new BehaviorSubject(this.filterMockedData);
   filterMockedData$ = this.filterMockedData$$.asObservable();
 
-  constructor(private handleData: HandelDataService) {
-
-  }
+  constructor(private handleData: HttpDataService) {}
 
   initData(value: number) {
-
-
     this.handleData.getJSON()
       .subscribe(mock => {
         this.filterMockedData = mock.data.filter(data => {
           return data.type === enumData[value]
         })
-
         this.filterMockedData$$.next(this.filterMockedData);
       })
   }

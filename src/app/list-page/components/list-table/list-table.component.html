@@ -1,0 +1,16 @@
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Phone</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let data of filteredData">
+  <td>
+    <tr>{{data.name.first }} {{data.name.last}}</tr>
+  </td>
+  <td>
+    <tr>{{data.phone}}</tr>
+  </td>
+  </tbody>
+</table>
